@@ -1,21 +1,12 @@
-# Terraform
-.terraform/
-*.tfstate
-*.tfstate.*
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
 
-# Keep lock file
-.terraform.lock.hcl
-
-# Secrets
-*.tfvars
-
-# Python
-__pycache__/
-*.pyc
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Lambda zip
-*.zip
+module "iam" {
+  source = "./modules/iam"
+}
